@@ -37,11 +37,11 @@ stages:
           $(tag)
 ## Publish Artifacts pipeline code in addition to Build and Push          
     - powershell: |
-        Write-Host "Contents in System Default Working Directory
-        Get-ChildItem -Recurse $(System.DefaultWorkingDirectory)
+        Write-Host "Contents in System Default Working Directory"
+        Get-ChildItem -Recurse "$(System.DefaultWorkingDirectory)"
     - powershell: |
         Write-Host "Before copying Contents in Build Artifact Directory"
-        Get-ChildItem -Recurse $(Build.ArtifactStagingDirectory)
+        Get-ChildItem -Recurse "$(Build.ArtifactStagingDirectory)"
        
     # Task-2: Copy files (Copy files from a source folder to target folder)
     # Source Directory: $(System.DefaultWorkingDirectory)/kube-manifests
@@ -55,7 +55,7 @@ stages:
     # List files from Build Artifact Staging Directory - After Copy
     - powershell: |
         Write-Host "After copying to Build Artifact Directory"
-        Get-ChildItem -Recurse $(Build.ArtifactStagingDirectory)
+        Get-ChildItem -Recurse "$(Build.ArtifactStagingDirectory)"
     # Task-3: Publish build artifacts (Publish build to Azure Pipelines)           
     - task: PublishBuildArtifacts@1
       inputs:
