@@ -6,7 +6,7 @@ resources:
 
 variables:
   dockerRegistryServiceConnection: '6aea47e3-718c-4025-b8e2-f1e139c20d7c'
-  imageRepository: 'app1nginx'
+  imageRepository: 'app1/app1nginx'
   containerRegistry: 'asdevopsacr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
